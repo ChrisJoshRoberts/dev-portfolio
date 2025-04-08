@@ -3,10 +3,9 @@
 	import Button from "$components/UI/Button.svelte";
   import SectionHeadline from "$components/UI/SectionHeadline.svelte";
   import aboutImage from "$lib/assets/chris_Image.jpg"
+  import handleContactClick from "$utils/utils";
 
-  const handleClick = () => {
-    goto("/#contact-form");
-  }
+ 
 </script>
 
 
@@ -18,11 +17,11 @@
       <img src={aboutImage} alt="Chris Roberts" class="about-image">
 
     <div class="about-text">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ratione deleniti asperiores a exercitationem repellat temporibus voluptatem minima cupiditate. Ipsum officiis alias earum. Laboriosam, aspernatur. Sed soluta animi assumenda quo.
+      <p>As a Frontend Dev/Des with several years of experience, I specialize in crafting visually compelling narratives through web design and strategy. From developing engaging brand identities to creating dynamic web visuals, I’m passionate about building impactful digital experiences
         <br><br>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ratione deleniti asperiores a exercitationem repellat temporibus voluptatem minima cupiditate. Ipsum officiis alias earum. Laboriosam, aspernatur. Sed soluta animi assumenda quo.
       </p>
-      <Button onclick={handleClick} className='small mt-m'>Tell me about your project</Button>
+      <Button onclick={handleContactClick} className='small mt-m'>Tell me about your project</Button>
     </div>
     
   </div>
