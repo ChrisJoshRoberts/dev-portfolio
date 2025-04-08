@@ -24,4 +24,8 @@
     padding: 14px 40px;
     border-radius: 8px;
   }
+  .small {
+    font-size: 22px;
+    padding: 10px 32px;
+  }
 </style>
