@@ -1,12 +1,14 @@
+import SectionHeadline from "$components/UI/SectionHeadline.svelte";
 <script lang="ts">
-	import SectionHeadline from "$components/UI/SectionHeadline.svelte";
   import { SquareChevronRight } from 'lucide-svelte';
+  import SectionHeadline from "$components/UI/SectionHeadline.svelte";
 
   interface MyWorkSectionProps {
     projects: ProcessedProject[]
   }
   let { projects } = $props()
   const mainProject = projects[0]
+  const otherProjects = projects.slice(1)
 </script>
 
 <section class="mt-l">
@@ -32,6 +34,30 @@
       </div>
     </article>
   </div>
+
+  <div class="default-margin all-projects-container">
+    {#each otherProjects as project}
+      <article class="article-card">
+        <a href={`/work/${project.slug}`}>
+          <div class="article-img-container">
+            <img src={project.projectImageUrl} alt="" class="article-img">
+          </div>
+        </a>
+        <div class="project-info-all mt-s">
+          <div>
+            <h3>{project.name}</h3>
+            <p class="dark-grey">{project.company}</p>
+          </div>
+          <div>
+            <a href={`/work/${project.slug}`} class="project-link">
+              <span>View Project</span>
+              <SquareChevronRight class="link-icon" />
+            </a>
+          </div>
+        </div>
+      </article>
+    {/each}
+  </div>
 </section>
 
 <style>
@@ -55,5 +81,24 @@
     gap: 0.5rem;
     color: var(--color-primary);
     text-decoration: none;
+  }
+  .all-projects-container {
+    display: flex;
+    gap: 16px;
+  }
+  .article-card {
+    width: 100%;
+
+  }
+  .article-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  .project-info-all {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 </style>
