@@ -1,4 +1,4 @@
-import SectionHeadline from "$components/UI/SectionHeadline.svelte";
+
 <script lang="ts">
   import { SquareChevronRight } from 'lucide-svelte';
   import SectionHeadline from '../UI/SectionHeadline.svelte';
