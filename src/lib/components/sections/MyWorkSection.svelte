@@ -1,7 +1,7 @@
 import SectionHeadline from "$components/UI/SectionHeadline.svelte";
 <script lang="ts">
   import { SquareChevronRight } from 'lucide-svelte';
-  import SectionHeadline from "$components/UI/SectionHeadline.svelte";
+  import SectionHeadline from '../UI/SectionHeadline.svelte';
 
   interface MyWorkSectionProps {
     projects: ProcessedProject[]
