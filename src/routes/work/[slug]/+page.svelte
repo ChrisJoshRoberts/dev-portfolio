@@ -1,7 +1,7 @@
 <script lang='ts'>
 	import { SquareChevronRight } from 'lucide-svelte';
 
-  const {data } = $props();
+  const { data } = $props();
   $inspect(data, 'data');
 
   function back() {
@@ -9,7 +9,7 @@
   }
 </script>
 
-<div>
+<main class="default-margin">
   <button onclick={back}>
     <div class="btn-icon">
       <SquareChevronRight />
@@ -17,12 +17,29 @@
     back
   </button>
   <h1>{data.name}</h1>
-</div>
+  <div class="img-container">
+    <img src={data.projectImageUrl} alt={data.name} />
+  </div>
+  <p>Date: {data.dateAccomplished}</p>
+  <p>Client: {data.company}</p>
+</main>
 
 <style>
+  .img-container {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    padding: 0px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+  }
   .btn-icon {
     padding: 2px;
-
     transform: rotate(180deg);
   }
   button {
@@ -41,6 +58,7 @@
     padding: 16px;
   }
   h1 {
-    margin-left: 52px;
+    margin-left: 32px;
+    margin-bottom: 16px;
   }
 </style>
