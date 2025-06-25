@@ -6,6 +6,14 @@
   function back() {
     history.back();
   }
+
+  function getTagStyle(style: ProcessedTextContent['style']): string {
+    if (style === 'normal') {
+      return 'p'
+    } else {
+      return style;
+    }
+  }
 </script>
 
 <main class="default-margin">
@@ -33,16 +41,28 @@
       </ul>
     </div>
     <div class="project-content">
-
+      {#each data.content as block}
+        {#if block.type === 'text'}
+          <svelte:element this={getTagStyle(block.style)} class="text-block">
+            {block.textToRender}
+          </svelte:element>
+        {/if}
+      {/each}
     </div>
   </div>
 
 </main>
 
 <style>
+  .text-block {
+    padding: 0 16px;
+  }
   .project-info {
     padding : 16px 0;
     display: flex;
+  }
+  .project-details {
+    min-width: 180px;
   }
   
   .meta-title {
@@ -57,7 +77,7 @@
   .btn-wrapper {
     position: absolute;
     left: -100px;
-    top: 32px;
+    top: 22px;
   }
   .img-container {
     width: 100%;
@@ -87,15 +107,17 @@
     font-size: 16px;
     font-weight: 500;
   }
-  h1 {
+  .project-name {
     margin-left: 32px;
     margin-bottom: 16px;
-  }
-  .project-name {
     position: relative;
     left: -44px;
+    font-size: 52px;
   }
   p {
     margin: 8px 0;
+  }
+  h3 {
+    font-weight: 700;
   }
 </style>
