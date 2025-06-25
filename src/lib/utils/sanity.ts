@@ -30,7 +30,6 @@ export function processProjectEntires(rawProject: Project) {
 }
 
 function proccesProjectContent(content : RawTextContent | RawImageContent) {
-  //TODO
   if (content._type === 'block') {
     const processedTextContent : ProcessedTextContent = {
       type: 'text',

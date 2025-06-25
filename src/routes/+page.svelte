@@ -9,7 +9,7 @@
   }
 
   const { data } = $props()
-  $inspect(data)
+
   const { workExpData: workExperience, projects } = data
 </script>
 
